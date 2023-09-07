@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=novasettings
+Comment=Convergent app ...
+TryExec=novasettings
+Exec=novasettings %U
+Terminal=false
+Type=Application
+GenericName=
+StartupNotify=true
+Icon=novasettings
+Categories=Qt;KDE;
+MimeType=
+SingleMainWindow=true
