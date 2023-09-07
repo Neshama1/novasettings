@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=novasettings
-Comment=Convergent app ...
+Name=Nova Settings
+Comment=Settings application for KDE Plasma
 TryExec=novasettings
 Exec=novasettings %U
 Terminal=false
