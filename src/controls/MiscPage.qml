@@ -11,8 +11,11 @@ Maui.Page
         getFont()
     }
 
+    property int fontThickness
+
     function getFont() {
         MiscBackend.getFont()
+        fontThickness = MiscBackend.fontThick
     }
 
     headBar.visible: false
@@ -44,7 +47,7 @@ Maui.Page
                 {
                     text: "Thin"
                     checked: {
-                        if (MiscBackend.fontThick == 0) {
+                        if (fontThickness == 0) {
                             return true;
                         }
                         else {
@@ -57,7 +60,7 @@ Maui.Page
                 {
                     text: "Light"
                     checked: {
-                        if (MiscBackend.fontThick == 1) {
+                        if (fontThickness == 1) {
                             return true;
                         }
                         else {
@@ -70,7 +73,7 @@ Maui.Page
                 {
                     text: "Bold"
                     checked: {
-                        if (MiscBackend.fontThick == 2) {
+                        if (fontThickness == 2) {
                             return true;
                         }
                         else {
