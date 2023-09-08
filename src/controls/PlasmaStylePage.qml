@@ -51,7 +51,7 @@ Maui.Page
                     //anchors.centerIn: parent
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.margins: -4
+                    anchors.margins: 4
                     text: "S"
                 }
             }
