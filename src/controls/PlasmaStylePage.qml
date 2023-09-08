@@ -20,7 +20,7 @@ Maui.Page
         PlasmaStyleBackend.getThemes()
         var fcount = PlasmaStyleBackend.stylesCount
         for (var i = 0 ; i < fcount ; i++) {
-            plasmaStyleModel.append({"name": PlasmaStyleBackend.plasmaStyles[i].name,"folder": PlasmaStyleBackend.plasmaStyles[i].folder,"path": PlasmaStyleBackend.plasmaStyles[i].path,"selected": PlasmaStyleBackend.plasmaStyles[i].selected,"plasmaColor": PlasmaStyleBackend.plasmaStyles[i].plasmaColor})
+            plasmaStyleModel.append({"name": PlasmaStyleBackend.plasmaStyles[i].name,"folder": PlasmaStyleBackend.plasmaStyles[i].folder,"path": PlasmaStyleBackend.plasmaStyles[i].path,"selected": PlasmaStyleBackend.plasmaStyles[i].selected,"plasmaColor": PlasmaStyleBackend.plasmaStyles[i].plasmaColor,"followSystem": PlasmaStyleBackend.plasmaStyles[i].followSystem})
         }
     }
 
@@ -44,6 +44,16 @@ Maui.Page
                 anchors.fill: parent
                 color: plasmaColor
                 radius: 3
+
+                Maui.Badge
+                {
+                    visible: followSystem ? true: false
+                    //anchors.centerIn: parent
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.margins: -4
+                    text: "S"
+                }
             }
 
             label2.text: name
