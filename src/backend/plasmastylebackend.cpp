@@ -117,6 +117,9 @@ void PlasmaStyleBackend::getThemes()
     QString locale = line;
     QString shortLocale = locale.mid(0,2);
 
+    // Cuenta total de añadidos de folderlist1
+    int total = 0;
+
     // Leer la totalidad de estilos plasma
     for (int i = 0; i < folderlist1.length(); i++) {
 
@@ -167,6 +170,7 @@ void PlasmaStyleBackend::getThemes()
             }
 
             m_plasmaStyles.append(item);
+            total = total + 1;
         }
 
         QString path2 = QDir::homePath() + "/.local/share/plasma/desktoptheme/" + folderlist1[i] + "/" + "metadata.json";
@@ -226,6 +230,7 @@ void PlasmaStyleBackend::getThemes()
             }
 
             m_plasmaStyles.append(item);
+            total = total + 1;
         }
     }
 
@@ -238,7 +243,7 @@ void PlasmaStyleBackend::getThemes()
 
         if (folderlist2[i] == selectedStyle) {
             item["selected"] = true;
-            m_selectedStyleIndex = i;
+            m_selectedStyleIndex = i + total;
         }
         else {
             item["selected"] = false;
