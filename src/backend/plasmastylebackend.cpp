@@ -252,10 +252,10 @@ void PlasmaStyleBackend::getThemes()
             KConfigGroup desktopEntry = plasmaStyle.group("Desktop Entry");
             item["name"] = desktopEntry.readEntry("Name", QString());
 
-            QString path = QDir::homePath() + "/usr/share/plasma/desktoptheme/" + folderlist2[i] + "/" + "colors";
+            QString path = "/usr/share/plasma/desktoptheme/" + folderlist2[i] + "/" + "colors";
             QFile file(path);
 
-            if (file.exists(path)) {
+            if (file.exists()) {
                 // Plasma theme makes use of the system color scheme
                 file.open(QIODevice::ReadOnly | QIODevice::Text);
                 QString val;
@@ -311,7 +311,7 @@ void PlasmaStyleBackend::getThemes()
 
             item["name"] = name;
 
-            QString path = QDir::homePath() + "/usr/share/plasma/desktoptheme/" + folderlist2[i] + "/" + "colors";
+            QString path = "/usr/share/plasma/desktoptheme/" + folderlist2[i] + "/" + "colors";
             QFile file(path);
 
             if (file.exists(path)) {
