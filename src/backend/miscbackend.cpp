@@ -23,21 +23,18 @@ void MiscBackend::setFontThick(int fontThick)
         return;
     }
 
-    // Valor actual
-    KConfig defaultThemesFile(QDir::homePath()+"/.config/kdeglobals");
-    KConfigGroup general = defaultThemesFile.group("General");
-    QString selectedTheme = general.readEntry("font", QString());
-    QString fontThickness = selectedTheme.section(',',10,10);
-
-    QString newTheme = selectedTheme;
+    QString theme = "Noto Sans,10,-1,5,25,0,0,0,0,0,";
+    QString newTheme;
 
     if (fontThick == 0)
-        newTheme.replace(fontThickness,"Display Thin");
+        newTheme = theme + "Display Thin";
     else if (fontThick == 1)
-        newTheme.replace(fontThickness,"Display Light");
+        newTheme = theme + "Display Light";
     else if (fontThick == 2)
-        newTheme.replace(fontThickness,"Regular");
+        newTheme = theme + "Regular";
 
+    KConfig defaultThemesFile(QDir::homePath()+"/.config/kdeglobals");
+    KConfigGroup general = defaultThemesFile.group("General");
     general.writeEntry("font", newTheme);
 
     m_fontThick = fontThick;
