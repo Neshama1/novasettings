@@ -11,11 +11,22 @@ Maui.Page
 {
     headBar.visible: false
 
+    Controls.Label {
+        id: labelAbout
+        x: 20
+        y: 15
+        text: "About"
+        font.pixelSize: 30
+    }
+
     Rectangle {
         id: rect1
+        y: 55 + 15
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -33,7 +44,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect1.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -51,7 +64,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect2.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -69,7 +84,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect3.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -87,7 +104,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect4.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -105,7 +124,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect5.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -123,7 +144,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect6.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor
@@ -141,7 +164,9 @@ Maui.Page
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rect7.bottom
-        anchors.margins: 10
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        anchors.topMargin: 5
         height: 50
         radius: 3
         color: Maui.Theme.alternateBackgroundColor

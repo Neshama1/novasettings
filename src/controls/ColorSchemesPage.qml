@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
@@ -29,11 +29,20 @@ Maui.Page
         id: colorSchemesModel
     }
 
+    Controls.Label {
+        id: labelColor
+        x: 20
+        y: 15
+        text: "Colors"
+        font.pixelSize: 30
+    }
+
     GridView {
         id: colorView
 
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.leftMargin: 15
+        anchors.topMargin: 50 + labelColor.y
 
         model: colorSchemesModel
         delegate: Maui.GridBrowserDelegate

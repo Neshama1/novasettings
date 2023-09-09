@@ -13,19 +13,18 @@ Maui.ApplicationWindow
     title: qsTr("Astro")
 
     Component.onCompleted: {
-        _stackView.push("qrc:/ColorSchemesPage.qml")
+        _stackView.push("qrc:/MiscPage.qml")
     }
 
     // Datos del menú
 
     ListModel {
     id: startMenuModel
-
+        ListElement { name: "Miscellanius" ; description: "Configure other options" ; icon: "love" }
+        ListElement { name: "About the system" ; description: "About the system" ; icon: "help-about-symbolic" }
         ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
         ListElement { name: "Plasma Style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
         ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
-        ListElement { name: "About the system" ; description: "About the system" ; icon: "help-about-symbolic" }
-        ListElement { name: "Misc" ; description: "Configure other options" ; icon: "love" }
     }
 
     Maui.SideBarView
@@ -85,35 +84,33 @@ Maui.ApplicationWindow
                     iconSource: icon
                     label1.text: name
 
-//                    isCurrentItem: startMenuModel.currentIndex === index
-
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
                             switch (index) {
                                 case 0: {
                                     menuView.currentIndex = index
-                                    _stackView.push("qrc:/ColorSchemesPage.qml")
+                                    _stackView.push("qrc:/MiscPage.qml")
                                     return
                                 }
                                 case 1: {
                                     menuView.currentIndex = index
-                                    _stackView.push("qrc:/PlasmaStylePage.qml")
+                                    _stackView.push("qrc:/AboutSystemPage.qml")
                                     return
                                 }
                                 case 2: {
                                     menuView.currentIndex = index
-                                    _stackView.push("qrc:/WallpapersPage.qml")
+                                    _stackView.push("qrc:/ColorSchemesPage.qml")
                                     return
                                 }
                                 case 3: {
                                     menuView.currentIndex = index
-                                    _stackView.push("qrc:/AboutSystemPage.qml")
+                                    _stackView.push("qrc:/PlasmaStylePage.qml")
                                     return
                                 }
                                 case 4: {
                                     menuView.currentIndex = index
-                                    _stackView.push("qrc:/MiscPage.qml")
+                                    _stackView.push("qrc:/WallpapersPage.qml")
                                     return
                                 }
                             }

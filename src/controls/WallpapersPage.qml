@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.15
 import org.mauikit.controls 1.3 as Maui
@@ -29,11 +29,20 @@ Maui.Page
         id: wallpapersModel
     }
 
+    Controls.Label {
+        id: labelWallpaper
+        x: 20
+        y: 15
+        text: "Wallpapers"
+        font.pixelSize: 30
+    }
+
     GridView {
         id: wallpapersView
 
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.leftMargin: 15
+        anchors.topMargin: 50 + labelWallpaper.y
 
         model: wallpapersModel
         delegate: Maui.GridBrowserDelegate

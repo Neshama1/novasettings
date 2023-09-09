@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.kde.novasettings 1.0
@@ -28,11 +28,20 @@ Maui.Page
         id: plasmaStyleModel
     }
 
+    Controls.Label {
+        id: labelPlasma
+        x: 20
+        y: 15
+        text: "Plasma style"
+        font.pixelSize: 30
+    }
+
     GridView {
         id: plasmaView
 
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.leftMargin: 15
+        anchors.topMargin: 50 + labelPlasma.y
 
         model: plasmaStyleModel
         delegate: Maui.GridBrowserDelegate
@@ -48,7 +57,6 @@ Maui.Page
                 Maui.Badge
                 {
                     visible: followSystem ? true: false
-                    //anchors.centerIn: parent
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.margins: 4

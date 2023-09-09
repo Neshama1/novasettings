@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.kde.novasettings 1.0
@@ -20,68 +20,76 @@ Maui.Page
 
     headBar.visible: false
 
-        Rectangle
-        {
-            x: 20
-            y: 20
+    Controls.Label {
+        id: labelMiscellanius
+        x: 20
+        y: 15
+        text: "Miscellanius"
+        font.pixelSize: 30
+    }
+
+    Rectangle
+    {
+        x: 20
+        y: 55 + labelMiscellanius.y
+        width: parent.width - 20 * 2
+        height: 60
+
+        color: Maui.Theme.alternateBackgroundColor
+        radius: 5
+
+        Controls.Label {
+            x: 10
             width: parent.width - 20 * 2
-            height: 60
+            anchors.verticalCenter: parent.verticalCenter
+            text: "Fonts"
+        }
 
-            color: Maui.Theme.alternateBackgroundColor
-            radius: 5
+        Maui.ToolActions
+        {
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 10
 
-            Label {
-                x: 10
-                width: parent.width - 20 * 2
-                anchors.verticalCenter: parent.verticalCenter
-                text: "Fonts"
-            }
-
-            Maui.ToolActions
+            Controls.Action
             {
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.margins: 10
-
-                Action
-                {
-                    text: "Thin"
-                    checked: {
-                        if (fontThickness == 0) {
-                            return true;
-                        }
-                        else {
-                            return false;
-                        }
+                text: "Thin"
+                checked: {
+                    if (fontThickness == 0) {
+                        return true;
                     }
-                    onTriggered: MiscBackend.setFontThick(0)
-                }
-                Action
-                {
-                    text: "Light"
-                    checked: {
-                        if (fontThickness == 1) {
-                            return true;
-                        }
-                        else {
-                            return false;
-                        }
+                    else {
+                        return false;
                     }
-                    onTriggered: MiscBackend.setFontThick(1)
                 }
-                Action
-                {
-                    text: "Bold"
-                    checked: {
-                        if (fontThickness == 2) {
-                            return true;
-                        }
-                        else {
-                            return false;
-                        }
-                    }
-                    onTriggered: MiscBackend.setFontThick(2)
-                }
+                onTriggered: MiscBackend.setFontThick(0)
             }
+            Controls.Action
+            {
+                text: "Light"
+                checked: {
+                    if (fontThickness == 1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                onTriggered: MiscBackend.setFontThick(1)
+            }
+            Controls.Action
+            {
+                text: "Bold"
+                checked: {
+                    if (fontThickness == 2) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                onTriggered: MiscBackend.setFontThick(2)
+            }
+        }
     }
 }
