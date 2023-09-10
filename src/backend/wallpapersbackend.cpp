@@ -182,10 +182,16 @@ void WallpapersBackend::getThemes()
         }
         else {
             for (int k=0; k<metadataFiles.length(); k++) {
-                if (metadataFiles[k].contains("metadata.desktop")) {
+                if (metadataFiles[k].contains("metadata.desktop") || metadataFiles[k].contains("metadata.json")) {
 
                     QString metadataUrl = metadataFiles[k];
-                    QString basePath = metadataFiles[k].remove("metadata.desktop");
+                    QString basePath;
+
+                    if (metadataFiles[k].contains("metadata.desktop"))
+                        basePath = metadataFiles[k].remove("metadata.desktop");
+                    if (metadataFiles[k].contains("metadata.json"))
+                        basePath = metadataFiles[k].remove("metadata.json");
+
                     QString paperPath = basePath + "contents/images/";
 
                     QStringList paperSizes;
@@ -247,10 +253,17 @@ void WallpapersBackend::getThemes()
 
                     QVariantMap item;
 
-                    KConfig metadataFile(metadataUrl);
-                    KConfigGroup desktopEntry = metadataFile.group("Desktop Entry");
+                    if (metadataUrl.contains("metadata.desktop"))
+                    {
+                        KConfig metadataFile(metadataUrl);
+                        KConfigGroup desktopEntry = metadataFile.group("Desktop Entry");
+                        item["name"] = desktopEntry.readEntry("Name", QString());
+                    }
+                    if (metadataUrl.contains("metadata.json"))
+                    {
+                        item["name"] = metadataUrl.section("/", 4, 4);
+                    }
 
-                    item["name"] = desktopEntry.readEntry("Name", QString());
                     item["paperUrl"] = paperURL;
 
                     if (paperURL == selectedWallpaper) {
