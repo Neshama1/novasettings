@@ -25,6 +25,7 @@ Maui.ApplicationWindow
         ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
         ListElement { name: "Plasma Style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
         ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
+        ListElement { name: "Qt Style" ; description: "Choose Qt Style" ; icon: "qtcreator" }
     }
 
     Maui.SideBarView
@@ -111,6 +112,11 @@ Maui.ApplicationWindow
                                 case 4: {
                                     menuView.currentIndex = index
                                     _stackView.push("qrc:/WallpapersPage.qml")
+                                    return
+                                }
+                                case 5: {
+                                    menuView.currentIndex = index
+                                    _stackView.push("qrc:/QtStylePage.qml")
                                     return
                                 }
                             }

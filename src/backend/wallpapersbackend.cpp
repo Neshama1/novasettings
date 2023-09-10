@@ -100,6 +100,7 @@ void WallpapersBackend::getThemes()
         QFileInfo wallpaperFile(filelist1[i]);
 
         if (wallpaperFile.exists() && wallpaperFile.isFile()){
+
             QVariantMap item;
 
             QString paperUrl = filelist1[i];

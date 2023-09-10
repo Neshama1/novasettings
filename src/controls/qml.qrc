@@ -4,6 +4,7 @@
         <file>ColorSchemesPage.qml</file>
         <file>PlasmaStylePage.qml</file>
         <file>WallpapersPage.qml</file>
+        <file>QtStylePage.qml</file>
         <file>AboutSystemPage.qml</file>
         <file>MiscPage.qml</file>
     </qresource>

@@ -15,6 +15,7 @@
 #include "backend/colorschemesbackend.h"
 #include "backend/plasmastylebackend.h"
 #include "backend/wallpapersbackend.h"
+#include "backend/qtstylebackend.h"
 #include "backend/aboutsystembackend.h"
 #include "backend/miscbackend.h"
 
@@ -70,6 +71,9 @@ int main(int argc, char *argv[])
 
     WallpapersBackend wallpapersbackend;
     qmlRegisterSingletonInstance<WallpapersBackend>("org.kde.novasettings", 1, 0, "WallpapersBackend", &wallpapersbackend);
+
+    QtStyleBackend qtstylebackend;
+    qmlRegisterSingletonInstance<QtStyleBackend>("org.kde.novasettings", 1, 0, "QtStyleBackend", &qtstylebackend);
 
     AboutSystemBackend aboutsystembackend;
     qmlRegisterSingletonInstance<AboutSystemBackend>("org.kde.novasettings", 1, 0, "AboutSystemBackend", &aboutsystembackend);

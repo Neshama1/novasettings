@@ -17,6 +17,7 @@ add_executable(${PROJECT_NAME}
     backend/plasmastylebackend.cpp
     backend/aboutsystembackend.cpp
     backend/wallpapersbackend.cpp
+    backend/qtstylebackend.cpp
     backend/miscbackend.cpp
     )
 
