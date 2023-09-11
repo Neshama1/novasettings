@@ -75,7 +75,9 @@ Maui.Page
                     }
                     plasmaStyleModel.setProperty(index, "selected", true)
                     PlasmaStyleBackend.setSelectedStyle(index)
-                    plasmaView.currentIndex = index
+                    plasmaStyleModel.clear()
+                    getPlasmaStyles()
+                    plasmaView.currentIndex = PlasmaStyleBackend.selectedStyle
                 }
             }
         }

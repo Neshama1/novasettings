@@ -95,6 +95,7 @@ void WallpapersBackend::getThemes()
     QStringList filelist1 = wallpapersGroup.readEntry("usersWallpapers", QStringList());
 
     m_filesCount = 0;
+    int total = 0;
 
     for (int i=0; i<filelist1.length(); i++) {
         QFileInfo wallpaperFile(filelist1[i]);
@@ -125,6 +126,7 @@ void WallpapersBackend::getThemes()
 
             m_wallpapers.append(item);
             m_filesCount += 1;
+            total++;
         }
     }
 
@@ -165,7 +167,7 @@ void WallpapersBackend::getThemes()
 
                 if (paperUrl == selectedWallpaper) {
                     item["selected"] = true;
-                    m_selectedWallpaperIndex = i;
+                    m_selectedWallpaperIndex = i + total;
                 }
                 else {
                     item["selected"] = false;

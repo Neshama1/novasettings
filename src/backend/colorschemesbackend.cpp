@@ -107,6 +107,7 @@ void ColorSchemesBackend::getThemes()
     QStringList filelist2 = GetColorSchemesFileList("/usr/share/color-schemes");
     int count = filelist1.length() + filelist2.length();
 
+    int total = 0;
     m_filesCount = count;
     qDebug() << "Schemes number: " << count;
 
@@ -144,6 +145,7 @@ void ColorSchemesBackend::getThemes()
         item["selectionColor"] = ColorsView.readEntry("DecorationFocus", QColor(Qt::white)).name();
 
         m_colorSchemes.append(item);
+        total++;
     }
 
     for (int i = 0; i < filelist2.length(); i++) {
@@ -158,7 +160,7 @@ void ColorSchemesBackend::getThemes()
 
         if (cleanSchemeName == selectedScheme) {
             item["selected"] = true;
-            m_selectedSchemeIndex = i;
+            m_selectedSchemeIndex = i + total;
         }
         else {
             item["selected"] = false;

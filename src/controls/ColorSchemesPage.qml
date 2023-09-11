@@ -67,7 +67,9 @@ Maui.Page
                     }
                     colorSchemesModel.setProperty(index, "selected", true)
                     ColorSchemesBackend.setSelectedScheme(index)
-                    colorView.currentIndex = index
+                    colorSchemesModel.clear()
+                    getColorSchemes()
+                    colorView.currentIndex = ColorSchemesBackend.selectedScheme
                 }
             }
         }

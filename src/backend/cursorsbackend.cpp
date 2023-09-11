@@ -113,6 +113,7 @@ void CursorsBackend::getThemes()
     // Leer la totalidad de iconos
 
     int j = 0;
+    int total = 0;
 
     for (int i = 0; i < folderlist1.length(); i++) {
 
@@ -144,6 +145,7 @@ void CursorsBackend::getThemes()
             m_cursorsThemes.append(item);
 
             j++;
+            total++;
         }
     }
 
@@ -168,7 +170,7 @@ void CursorsBackend::getThemes()
 
             if (folderlist2[i] == selectedTheme) {
                 item["selected"] = true;
-                m_selectedTheme = j;
+                m_selectedTheme = i + total;
             }
             else {
                 item["selected"] = false;
