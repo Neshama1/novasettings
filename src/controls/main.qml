@@ -25,7 +25,7 @@ Maui.ApplicationWindow
         ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
         ListElement { name: "Plasma Style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
         ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
-        ListElement { name: "Qt Style" ; description: "Choose Qt Style" ; icon: "qtcreator" }
+        ListElement { name: "Qt Style" ; description: "Choose Qt Style" ; icon: "pattern-qt-devel" }
     }
 
     Maui.SideBarView
