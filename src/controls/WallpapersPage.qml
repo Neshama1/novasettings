@@ -8,13 +8,33 @@ import org.kde.novasettings 1.0
 
 Maui.Page
 {
-    id: pgWallpapers
+    id: wallpapersPage
 
     headBar.visible: false
 
     Component.onCompleted: {
         getWallpapers()
         wallpapersView.currentIndex = WallpapersBackend.selectedWallpaper
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: wallpapersPage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: wallpapersPage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
     }
 
     function getWallpapers() {

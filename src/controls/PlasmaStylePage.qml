@@ -7,13 +7,33 @@ import org.kde.novasettings 1.0
 
 Maui.Page
 {
-    id: pgPlasma
+    id: plasmaPage
 
     headBar.visible: false
 
     Component.onCompleted: {
         getPlasmaStyles()
         plasmaView.currentIndex = PlasmaStyleBackend.selectedStyle
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: plasmaPage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: plasmaPage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
     }
 
     function getPlasmaStyles() {

@@ -8,13 +8,33 @@ import org.kde.novasettings 1.0
 
 Maui.Page
 {
-    id: pgColor
+    id: colorPage
 
     headBar.visible: false
 
     Component.onCompleted: {
         getColorSchemes()
         colorView.currentIndex = ColorSchemesBackend.selectedScheme
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: colorPage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: colorPage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
     }
 
     function getColorSchemes() {

@@ -7,8 +7,30 @@ import org.kde.novasettings 1.0
 
 Maui.Page
 {
+    id: miscPage
+
     Component.onCompleted: {
         getFont()
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: miscPage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: miscPage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
     }
 
     property int fontThickness

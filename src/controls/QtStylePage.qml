@@ -7,11 +7,33 @@ import org.kde.novasettings 1.0
 
 Maui.Page
 {
+    id: qtStylePage
+
     headBar.visible: false
 
     Component.onCompleted: {
         getQtStyle()
         qtStyle = QtStyleBackend.qtStyle
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: qtStylePage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: qtStylePage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
     }
 
     property int qtStyle

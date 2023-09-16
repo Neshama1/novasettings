@@ -9,7 +9,32 @@ import org.kde.kirigami 2.7 as Kirigami
 
 Maui.Page
 {
+    id: aboutPage
+
     headBar.visible: false
+
+    Component.onCompleted: {
+        opacityAnimation.start()
+        xAnimation.start()
+    }
+
+    PropertyAnimation {
+        id: opacityAnimation
+        target: aboutPage
+        properties: "opacity"
+        from: 0
+        to: 1.0
+        duration: 250
+    }
+
+    PropertyAnimation {
+        id: xAnimation
+        target: aboutPage
+        properties: "x"
+        from: -10
+        to: 0
+        duration: 500
+    }
 
     Controls.Label {
         id: labelAbout
