@@ -61,10 +61,10 @@ Maui.ApplicationWindow
             ]
 
             headBar.rightContent: [
-                ToolButton
+                /*ToolButton
                 {
                     icon.name: "draw-arrow-back"
-                }
+                }*/
             ]
 
             // Relleno de menú
@@ -139,10 +139,10 @@ Maui.ApplicationWindow
 
             headBar.background: null
             headBar.farRightContent: [
-                ToolButton
+                /*ToolButton
                 {
                     icon.name: "dialog-ok-apply"
-                }
+                }*/
             ]
 
             StackView {
