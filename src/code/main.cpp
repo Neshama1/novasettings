@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     KAboutData about(QStringLiteral(COMPONENT_NAME), i18n(PROJECT_NAME), PROJECT_VERSION_STRING, i18n(PROJECT_DESCRIPTION),
                      KAboutLicense::LGPL_V3, QString("© %1-%2 %3 Development Team").arg(PROJECT_YEAR, QString::number(QDate::currentDate().year()), ORG_NAME), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
 
-    about.addAuthor(i18n("Your Name"), i18n("Developer"), QStringLiteral("name@email.com"));
+    about.addAuthor(i18n("Miguel Beltrán"), i18n("Developer"), QStringLiteral("hopeandtruth6517@gmail.com"));
 
     about.setHomepage(PROJECT_PAGE);
     about.setProductName(PRODUCT_NAME);
