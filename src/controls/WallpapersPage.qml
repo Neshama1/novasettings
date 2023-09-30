@@ -49,20 +49,11 @@ Maui.Page
         id: wallpapersModel
     }
 
-    Controls.Label {
-        id: labelWallpaper
-        x: 20
-        y: 15
-        text: "Wallpapers"
-        font.pixelSize: 30
-    }
-
     GridView {
         id: wallpapersView
 
         anchors.fill: parent
-        anchors.leftMargin: 15
-        anchors.topMargin: 50 + labelWallpaper.y
+        anchors.margins: 20
 
         model: wallpapersModel
         delegate: Maui.GridBrowserDelegate

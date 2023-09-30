@@ -49,20 +49,11 @@ Maui.Page
         id: colorSchemesModel
     }
 
-    Controls.Label {
-        id: labelColor
-        x: 20
-        y: 15
-        text: "Colors"
-        font.pixelSize: 30
-    }
-
     GridView {
         id: colorView
 
         anchors.fill: parent
-        anchors.leftMargin: 15
-        anchors.topMargin: 50 + labelColor.y
+        anchors.margins: 20
 
         model: colorSchemesModel
         delegate: Maui.GridBrowserDelegate

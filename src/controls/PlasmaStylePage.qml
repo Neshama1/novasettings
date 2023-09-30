@@ -48,20 +48,11 @@ Maui.Page
         id: plasmaStyleModel
     }
 
-    Controls.Label {
-        id: labelPlasma
-        x: 20
-        y: 15
-        text: "Plasma style"
-        font.pixelSize: 30
-    }
-
     GridView {
         id: plasmaView
 
         anchors.fill: parent
-        anchors.leftMargin: 15
-        anchors.topMargin: 50 + labelPlasma.y
+        anchors.margins: 20
 
         model: plasmaStyleModel
         delegate: Maui.GridBrowserDelegate
