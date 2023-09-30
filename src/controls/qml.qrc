@@ -8,6 +8,7 @@
         <file>AboutSystemPage.qml</file>
         <file>MiscPage.qml</file>
         <file>MousePage.qml</file>
+        <file>VirtualDesktopsPage.qml</file>
         <file>MainMenuPage.qml</file>
         <file>AppearanceMenuPage.qml</file>
     </qresource>
