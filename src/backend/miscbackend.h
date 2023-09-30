@@ -19,9 +19,13 @@ class MiscBackend : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int fontThick READ fontThick WRITE setFontThick NOTIFY fontThickChanged)
+    Q_PROPERTY(bool fileIndexing READ fileIndexing WRITE setFileIndexing NOTIFY fileIndexingChanged)
+    Q_PROPERTY(int globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged)
 
-    public:
+public:
     Q_INVOKABLE void getFont();
+    Q_INVOKABLE void getFileIndexing();
+    Q_INVOKABLE void getGlobalScale();
 
 public:
     /**
@@ -38,6 +42,8 @@ public:
      * @return the fontThick
      */
     int fontThick() const;
+    bool fileIndexing();
+    int globalScale();
 
 public Q_SLOTS:
     /**
@@ -46,12 +52,18 @@ public Q_SLOTS:
      * @param fontThick the new fontThick
      */
     void setFontThick(int fontThick);
+    void setFileIndexing(bool fileIndexing);
+    void setGlobalScale(int globalScale);
 
 Q_SIGNALS:
     void fontThickChanged(int fontThick);
+    void fileIndexingChanged(bool fileIndexing);
+    void globalScaleChanged(int globalScale);
 
 private:
     int m_fontThick;
+    bool m_fileIndexing;
+    int m_globalScale;
 };
 
 #endif // MISCBACKEND_H

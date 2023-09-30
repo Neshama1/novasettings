@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
@@ -36,171 +36,96 @@ Maui.Page
         duration: 500
     }
 
-    Controls.Label {
-        id: labelAbout
-        x: 20
-        y: 15
-        text: "About"
-        font.pixelSize: 30
-    }
-
-    Rectangle {
-        id: rect1
-        y: 55 + 15
+    Maui.SectionGroup
+    {
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
+        anchors.top: parent.top
+        anchors.margins: 20
+        height: 100
 
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.osName
-            // color: Maui.Theme.disabledTextColor
+        title: i18n("About")
+        description: i18n("Information about the system")
+
+        Maui.SectionItem
+        {
+            label1.text:  i18n("OS name")
+            label2.text: i18n("Distribution name")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.osName
+            }
         }
-    }
-
-    Rectangle {
-        id: rect2
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect1.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.architecture
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Computer architecture")
+            label2.text: i18n("Instruction set architecture")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.architecture
+            }
         }
-    }
-
-    Rectangle {
-        id: rect3
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect2.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.kernelVersion
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Kernel")
+            label2.text: i18n("Kernel version")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.kernelVersion
+            }
         }
-    }
-
-    Rectangle {
-        id: rect4
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect3.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.hostname
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Hostname")
+            label2.text: i18n("Network label")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.hostname
+            }
         }
-    }
-
-    Rectangle {
-        id: rect5
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect4.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.userName
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("User")
+            label2.text: i18n("Your user")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.userName
+            }
         }
-    }
-
-    Rectangle {
-        id: rect6
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect5.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.memorySize
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Memory Size")
+            label2.text: i18n("Computer memory")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.memorySize
+            }
         }
-    }
-
-    Rectangle {
-        id: rect7
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect6.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.internalStorage
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Storage")
+            label2.text: i18n("Storage size")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.internalStorage
+            }
         }
-    }
-
-    Rectangle {
-        id: rect8
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rect7.bottom
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 5
-        height: 50
-        radius: 3
-        color: Maui.Theme.alternateBackgroundColor
-
-        Controls.Label {
-            anchors.fill: parent
-            anchors.margins: 5
-            text: AboutSystemBackend.cpuInfo
-            // color: Maui.Theme.disabledTextColor
+        Maui.SectionItem
+        {
+            label1.text:  i18n("CPU")
+            label2.text: i18n("CPU info")
+            Label {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: AboutSystemBackend.cpuInfo
+            }
         }
     }
 }

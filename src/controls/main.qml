@@ -13,19 +13,8 @@ Maui.ApplicationWindow
     title: qsTr("Astro")
 
     Component.onCompleted: {
+        _stackViewMenu.push("qrc:/MainMenuPage.qml")
         _stackView.push("qrc:/MiscPage.qml")
-    }
-
-    // Datos del menú
-
-    ListModel {
-    id: startMenuModel
-        ListElement { name: "Miscellanius" ; description: "Configure other options" ; icon: "love" }
-        ListElement { name: "About the system" ; description: "About the system" ; icon: "help-about-symbolic" }
-        ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
-        ListElement { name: "Plasma Style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
-        ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
-        ListElement { name: "Qt Style" ; description: "Choose Qt Style" ; icon: "pattern-qt-devel" }
     }
 
     Maui.SideBarView
@@ -38,8 +27,9 @@ Maui.ApplicationWindow
             id: sideBarPage
 
             anchors.fill: parent
+            headBar.visible: false
             Maui.Theme.colorSet: Maui.Theme.Window
-
+/*
             headBar.leftContent: [
                 Maui.ToolButtonMenu
                 {
@@ -61,70 +51,12 @@ Maui.ApplicationWindow
             ]
 
             headBar.rightContent: [
-                /*ToolButton
+                ToolButton
                 {
                     icon.name: "draw-arrow-back"
-                }*/
-            ]
-
-            // Relleno de menú
-
-            ListView {
-                id: menuView
-                anchors.fill: parent
-                anchors.margins: 10
-
-                spacing: 5
-
-                model: startMenuModel
-                delegate: Maui.ListBrowserDelegate
-                {
-                    id: list1
-                    implicitWidth: parent.width
-                    implicitHeight: 35
-                    iconSource: icon
-                    label1.text: name
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            switch (index) {
-                                case 0: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/MiscPage.qml")
-                                    return
-                                }
-                                case 1: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/AboutSystemPage.qml")
-                                    return
-                                }
-                                case 2: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/ColorSchemesPage.qml")
-                                    return
-                                }
-                                case 3: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/PlasmaStylePage.qml")
-                                    return
-                                }
-                                case 4: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/WallpapersPage.qml")
-                                    return
-                                }
-                                case 5: {
-                                    menuView.currentIndex = index
-                                    _stackView.push("qrc:/QtStylePage.qml")
-                                    return
-                                }
-                            }
-                        }
-                    }
                 }
-            }
-
+            ]
+*/
             StackView {
                 id:_stackViewMenu
                 anchors.fill: parent

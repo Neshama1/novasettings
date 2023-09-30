@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME}
     backend/wallpapersbackend.cpp
     backend/qtstylebackend.cpp
     backend/miscbackend.cpp
+    backend/mousebackend.cpp
     )
 
 target_compile_definitions(${PROJECT_NAME}

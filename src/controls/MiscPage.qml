@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQml 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.kde.novasettings 1.0
@@ -9,8 +9,16 @@ Maui.Page
 {
     id: miscPage
 
+    property int fontThickness
+    property bool fileIndexing
+    property int globalScale
+
+    headBar.visible: false
+
     Component.onCompleted: {
         getFont()
+        getFileIndexing()
+        getGlobalScale()
         opacityAnimation.start()
         xAnimation.start()
     }
@@ -33,84 +41,139 @@ Maui.Page
         duration: 500
     }
 
-    property int fontThickness
-
     function getFont() {
         MiscBackend.getFont()
         fontThickness = MiscBackend.fontThick
     }
 
-    headBar.visible: false
-
-    Controls.Label {
-        id: labelMiscellanius
-        x: 20
-        y: 15
-        text: "Miscellanius"
-        font.pixelSize: 30
+    function getFileIndexing() {
+        MiscBackend.getFileIndexing()
+        fileIndexing = MiscBackend.fileIndexing
     }
 
-    Rectangle
+    function getGlobalScale() {
+        MiscBackend.getGlobalScale()
+        globalScale = MiscBackend.globalScale
+    }
+
+    Timer {
+        id: notificationTimer
+        interval: 5000; running: false; repeat: false
+        onTriggered: {
+            root.notify("notifications","Global scale","You must restart the session for the changes to take effect",null,5000,"Accept")
+        }
+    }
+
+    Maui.SectionGroup
     {
-        x: 20
-        y: 55 + labelMiscellanius.y
-        width: parent.width - 20 * 2
-        height: 60
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: 20
+        height: 50 * 3
 
-        color: Maui.Theme.alternateBackgroundColor
-        radius: 5
+        title: i18n("General")
+        description: i18n("Configure the behaviour")
 
-        Controls.Label {
-            x: 10
-            width: parent.width - 20 * 2
-            anchors.verticalCenter: parent.verticalCenter
-            text: "Fonts"
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Desktop search")
+            label2.text: i18n("Enable file indexing")
+            Switch {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.margins: 10
+                checkable: true
+                checked: fileIndexing ? true : false
+                onToggled: {
+                    visualPosition == 0 ? MiscBackend.setFileIndexing(false) : MiscBackend.setFileIndexing(true)
+                }
+            }
         }
 
-        Maui.ToolActions
+        Maui.SectionItem
         {
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.margins: 10
+            label1.text:  i18n("Global scale")
+            label2.text: i18n("Display configuration")
+            SpinBox {
+                id: spinBox
+                from: 0
+                to: items.length - 1
+                value: globalScale
 
-            Controls.Action
-            {
-                text: "Thin"
-                checked: {
-                    if (fontThickness == 0) {
-                        return true;
-                    }
-                    else {
-                        return false;
-                    }
+                property var items: ["100%", "125%", "150%", "175%", "200%", "225%", "250%", "275%", "300%"]
+
+                validator: RegularExpressionValidator {
+                    regularExpression: new RegExp("(100%|125%|150%|175%|200%|225%|225%|250%|275%|300%)", "i")
                 }
-                onTriggered: MiscBackend.setFontThick(0)
+
+                textFromValue: function(value) {
+                    return items[value];
+                }
+
+                valueFromText: function(text) {
+                    for (var i = 0; i < items.length; ++i) {
+                        if (items[i].toLowerCase().indexOf(text.toLowerCase()) === 0)
+                            return i
+                    }
+                    return spinBox.value
+                }
+                onValueModified: {
+                    MiscBackend.setGlobalScale(value)
+                    notificationTimer.start()
+                }
             }
-            Controls.Action
+        }
+
+        Maui.SectionItem
+        {
+            label1.text:  i18n("Fonts")
+            label2.text: i18n("Font thickness")
+            Maui.ToolActions
             {
-                text: "Light"
-                checked: {
-                    if (fontThickness == 1) {
-                        return true;
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.margins: 10
+
+                Action
+                {
+                    text: "Thin"
+                    checked: {
+                        if (fontThickness == 0) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
                     }
-                    else {
-                        return false;
-                    }
+                    onTriggered: MiscBackend.setFontThick(0)
                 }
-                onTriggered: MiscBackend.setFontThick(1)
-            }
-            Controls.Action
-            {
-                text: "Bold"
-                checked: {
-                    if (fontThickness == 2) {
-                        return true;
+                Action
+                {
+                    text: "Light"
+                    checked: {
+                        if (fontThickness == 1) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
                     }
-                    else {
-                        return false;
-                    }
+                    onTriggered: MiscBackend.setFontThick(1)
                 }
-                onTriggered: MiscBackend.setFontThick(2)
+                Action
+                {
+                    text: "Bold"
+                    checked: {
+                        if (fontThickness == 2) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    onTriggered: MiscBackend.setFontThick(2)
+                }
             }
         }
     }
