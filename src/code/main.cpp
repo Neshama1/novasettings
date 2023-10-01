@@ -20,6 +20,7 @@
 #include "backend/miscbackend.h"
 #include "backend/mousebackend.h"
 #include "backend/virtualdesktopsbackend.h"
+#include "backend/powerbackend.h"
 
 //Useful for setting quickly an app template
 #define ORG_NAME "KDE"
@@ -88,6 +89,9 @@ int main(int argc, char *argv[])
 
     VirtualDesktopsBackend virtualdesktopsbackend;
     qmlRegisterSingletonInstance<VirtualDesktopsBackend>("org.kde.novasettings", 1, 0, "VirtualDesktopsBackend", &virtualdesktopsbackend);
+
+    PowerBackend powerbackend;
+    qmlRegisterSingletonInstance<PowerBackend>("org.kde.novasettings", 1, 0, "PowerBackend", &powerbackend);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 

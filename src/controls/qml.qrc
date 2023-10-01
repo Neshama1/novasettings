@@ -9,7 +9,11 @@
         <file>MiscPage.qml</file>
         <file>MousePage.qml</file>
         <file>VirtualDesktopsPage.qml</file>
+        <file>PowerACPage.qml</file>
+        <file>PowerBatteryPage.qml</file>
+        <file>PowerLowBatteryPage.qml</file>
         <file>MainMenuPage.qml</file>
         <file>AppearanceMenuPage.qml</file>
+        <file>PowerMenuPage.qml</file>
     </qresource>
 </RCC>

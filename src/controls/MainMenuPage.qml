@@ -37,6 +37,7 @@ Maui.Page
         ListElement { name: "General behavior" ; description: "Configure other options" ; icon: "love" }
         ListElement { name: "Mouse" ; description: "Mouse" ; icon: "input-mouse" }
         ListElement { name: "Virtual desktops" ; description: "Virtual desktops" ; icon: "virtual-desktops" }
+        ListElement { name: "Power management" ; description: "Power management" ; icon: "battery-ups" }
         ListElement { name: "Appearance" ; description: "Appearance" ; icon: "edit-paste-style" }
         ListElement { name: "About the system" ; description: "About the system" ; icon: "help-about-symbolic" }
     }
@@ -78,11 +79,17 @@ Maui.Page
                         }
                         case 3: {
                             menuView.currentIndex = index
+                            _stackViewMenu.push("qrc:/PowerMenuPage.qml")
+                            _stackView.push("qrc:/PowerACPage.qml")
+                            return
+                        }
+                        case 4: {
+                            menuView.currentIndex = index
                             _stackViewMenu.push("qrc:/AppearanceMenuPage.qml")
                             _stackView.push("qrc:/QtStylePage.qml")
                             return
                         }
-                        case 4: {
+                        case 5: {
                             menuView.currentIndex = index
                             _stackView.push("qrc:/AboutSystemPage.qml")
                             return

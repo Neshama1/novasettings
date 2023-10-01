@@ -35,27 +35,26 @@ Maui.Page
             icon.name: "draw-arrow-back"
             onClicked: {
                 _stackViewMenu.pop()
-                _stackView.push("qrc:/QtStylePage.qml")
+                _stackView.push("qrc:/PowerACPage.qml")
             }
         }
     ]
 
     ListModel {
-        id: appareanceModel
-        ListElement { name: "Qt style" ; description: "Choose Qt Style" ; icon: "preferences-desktop-theme-applications" }
-        ListElement { name: "Plasma style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
-        ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
-        ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
+        id: powerModel
+        ListElement { name: "AC" ; description: "AC" ; icon: "battery-ups" }
+        ListElement { name: "Battery" ; description: "Battery" ; icon: "battery-080" }
+        ListElement { name: "Low battery" ; description: "Low battery" ; icon: "battery-caution" }
     }
 
     ListView {
-        id: appareanceMenuView
+        id: powerMenuView
         anchors.fill: parent			// dimensión completa de la vista de lista
         anchors.margins: 10			// espaciado exterior
 
         spacing: 5				// espaciado entre elementos de la lista
 
-        model: appareanceModel
+        model: powerModel
         delegate: Maui.ListBrowserDelegate
         {
             implicitWidth: parent.width	// anchura de un elemento de la lista
@@ -69,23 +68,18 @@ Maui.Page
                 onClicked: {
                     switch (index) {
                         case 0: {
-                            appareanceMenuView.currentIndex = index
-                            _stackView.push("qrc:/QtStylePage.qml")
+                            powerMenuView.currentIndex = index
+                            _stackView.push("qrc:/PowerACPage.qml")
                             return
                         }
                         case 1: {
-                            appareanceMenuView.currentIndex = index
-                            _stackView.push("qrc:/PlasmaStylePage.qml")
+                            powerMenuView.currentIndex = index
+                            _stackView.push("qrc:/PowerBatteryPage.qml")
                             return
                         }
                         case 2: {
-                            appareanceMenuView.currentIndex = index
-                            _stackView.push("qrc:/ColorSchemesPage.qml")
-                            return
-                        }
-                        case 3: {
-                            appareanceMenuView.currentIndex = index
-                            _stackView.push("qrc:/WallpapersPage.qml")
+                            powerMenuView.currentIndex = index
+                            _stackView.push("qrc:/PowerLowBatteryPage.qml")
                             return
                         }
                     }

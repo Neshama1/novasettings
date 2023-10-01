@@ -21,6 +21,7 @@ add_executable(${PROJECT_NAME}
     backend/miscbackend.cpp
     backend/mousebackend.cpp
     backend/virtualdesktopsbackend.cpp
+    backend/powerbackend.cpp
     )
 
 target_compile_definitions(${PROJECT_NAME}
