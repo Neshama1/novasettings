@@ -55,15 +55,19 @@ Maui.Page
         anchors.fill: parent
         anchors.margins: 20
 
+        cellWidth: 85
+        cellHeight: 95
+
         model: wallpapersModel
         delegate: Maui.GridBrowserDelegate
         {
             implicitWidth: 80
-            implicitHeight: 80
+            implicitHeight: 90
 
             Rectangle {
                 id: paperRect
                 anchors.fill: parent
+                anchors.bottomMargin: 20
                 radius: 3
 
                 Image {

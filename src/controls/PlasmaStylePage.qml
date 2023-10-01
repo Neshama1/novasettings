@@ -54,14 +54,18 @@ Maui.Page
         anchors.fill: parent
         anchors.margins: 20
 
+        cellWidth: 85
+        cellHeight: 95
+
         model: plasmaStyleModel
         delegate: Maui.GridBrowserDelegate
         {
             implicitWidth: 80
-            implicitHeight: 80
+            implicitHeight: 90
 
             Rectangle {
                 anchors.fill: parent
+                anchors.bottomMargin: 20
                 color: plasmaColor
                 radius: 3
 
