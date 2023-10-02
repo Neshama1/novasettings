@@ -29,34 +29,7 @@ Maui.ApplicationWindow
             anchors.fill: parent
             headBar.visible: false
             Maui.Theme.colorSet: Maui.Theme.Window
-/*
-            headBar.leftContent: [
-                Maui.ToolButtonMenu
-                {
-                    icon.name: "application-menu"
 
-                    MenuItem
-                    {
-                        text: i18n("Settings")
-                        icon.name: "settings-configure"
-                    }
-
-                    MenuItem
-                    {
-                        text: i18n("About")
-                        icon.name: "documentinfo"
-                        onTriggered: root.about()
-                    }
-                }
-            ]
-
-            headBar.rightContent: [
-                ToolButton
-                {
-                    icon.name: "draw-arrow-back"
-                }
-            ]
-*/
             StackView {
                 id:_stackViewMenu
                 anchors.fill: parent

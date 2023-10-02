@@ -12,6 +12,7 @@
         <file>PowerACPage.qml</file>
         <file>PowerBatteryPage.qml</file>
         <file>PowerLowBatteryPage.qml</file>
+        <file>UsersPage.qml</file>
         <file>MainMenuPage.qml</file>
         <file>AppearanceMenuPage.qml</file>
         <file>PowerMenuPage.qml</file>

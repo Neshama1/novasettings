@@ -21,6 +21,7 @@
 #include "backend/mousebackend.h"
 #include "backend/virtualdesktopsbackend.h"
 #include "backend/powerbackend.h"
+#include "backend/usersbackend.h"
 
 //Useful for setting quickly an app template
 #define ORG_NAME "KDE"
@@ -92,6 +93,9 @@ int main(int argc, char *argv[])
 
     PowerBackend powerbackend;
     qmlRegisterSingletonInstance<PowerBackend>("org.kde.novasettings", 1, 0, "PowerBackend", &powerbackend);
+
+    UsersBackend usersbackend;
+    qmlRegisterSingletonInstance<UsersBackend>("org.kde.novasettings", 1, 0, "UsersBackend", &usersbackend);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
