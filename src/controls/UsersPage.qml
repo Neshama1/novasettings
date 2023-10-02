@@ -64,7 +64,7 @@ Maui.Page
             {
                 implicitHeight: 45
 
-                label1.text:  i18n("User")
+                //label1.text:  i18n("User")
                 label2.text: user
                 Button {
                     id: chPassButton
