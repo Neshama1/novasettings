@@ -38,6 +38,7 @@ Maui.Page
         ListElement { name: "Mouse" ; description: "Mouse" ; icon: "input-mouse" }
         ListElement { name: "Virtual desktops" ; description: "Virtual desktops" ; icon: "virtual-desktops" }
         ListElement { name: "Power management" ; description: "Power management" ; icon: "battery-ups" }
+        ListElement { name: "Desktop Effects" ; description: "Desktop effects" ; icon: "special-effects-symbolic" }
         ListElement { name: "Users" ; description: "Users" ; icon: "user" }
         ListElement { name: "Appearance" ; description: "Appearance" ; icon: "edit-paste-style" }
         ListElement { name: "About the system" ; description: "About the system" ; icon: "help-about-symbolic" }
@@ -86,16 +87,21 @@ Maui.Page
                         }
                         case 4: {
                             menuView.currentIndex = index
-                            _stackView.push("qrc:/UsersPage.qml")
+                            _stackView.push("qrc:/DesktopEffectsPage.qml")
                             return
                         }
                         case 5: {
+                            menuView.currentIndex = index
+                            _stackView.push("qrc:/UsersPage.qml")
+                            return
+                        }
+                        case 6: {
                             menuView.currentIndex = index
                             _stackViewMenu.push("qrc:/AppearanceMenuPage.qml")
                             _stackView.push("qrc:/QtStylePage.qml")
                             return
                         }
-                        case 6: {
+                        case 7: {
                             menuView.currentIndex = index
                             _stackView.push("qrc:/AboutSystemPage.qml")
                             return

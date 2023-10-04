@@ -23,6 +23,7 @@ add_executable(${PROJECT_NAME}
     backend/virtualdesktopsbackend.cpp
     backend/powerbackend.cpp
     backend/usersbackend.cpp
+    backend/desktopeffectsbackend.cpp
     )
 
 target_compile_definitions(${PROJECT_NAME}

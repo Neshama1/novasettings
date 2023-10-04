@@ -22,6 +22,7 @@
 #include "backend/virtualdesktopsbackend.h"
 #include "backend/powerbackend.h"
 #include "backend/usersbackend.h"
+#include "backend/desktopeffectsbackend.h"
 
 //Useful for setting quickly an app template
 #define ORG_NAME "KDE"
@@ -96,6 +97,9 @@ int main(int argc, char *argv[])
 
     UsersBackend usersbackend;
     qmlRegisterSingletonInstance<UsersBackend>("org.kde.novasettings", 1, 0, "UsersBackend", &usersbackend);
+
+    DesktopEffectsBackend desktopeffectsbackend;
+    qmlRegisterSingletonInstance<DesktopEffectsBackend>("org.kde.novasettings", 1, 0, "DesktopEffectsBackend", &desktopeffectsbackend);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
