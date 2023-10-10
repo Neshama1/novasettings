@@ -55,15 +55,29 @@ Maui.Page
         anchors.fill: parent
         anchors.margins: 20
 
-        cellWidth: 85
+        cellWidth: 80
         cellHeight: 95
 
         model: wallpapersModel
         delegate: Maui.GridBrowserDelegate
         {
-            implicitWidth: 80
+            implicitWidth: 75
             implicitHeight: 90
 
+            Maui.IconItem
+            {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 20
+                imageSource: Qt.resolvedUrl("file://" + paperUrl)
+                imageSizeHint: 60
+                maskRadius: Maui.Style.radiusV
+                fillMode: Image.PreserveAspectCrop
+            }
+
+            /*
             Rectangle {
                 id: paperRect
                 anchors.fill: parent
@@ -93,6 +107,7 @@ Maui.Page
                     }
                 }
             }
+            */
 
             label2.text: name
 
