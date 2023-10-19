@@ -44,6 +44,7 @@ target_link_libraries(${PROJECT_NAME}
     KF5::I18n
     KF5::ConfigCore
     KF5::ConfigGui
+    KF5::Kirigami2
     )
 
 install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
