@@ -24,6 +24,8 @@ add_executable(${PROJECT_NAME}
     backend/powerbackend.cpp
     backend/usersbackend.cpp
     backend/desktopeffectsbackend.cpp
+    backend/lookandfeelbackend.cpp
+    backend/sddmbackend.cpp
     )
 
 target_compile_definitions(${PROJECT_NAME}

@@ -130,7 +130,7 @@ void PlasmaStyleBackend::getThemes()
 
         if (folderlist1[i] == selectedStyle) {
             item["selected"] = true;
-            m_selectedStyleIndex = i;
+            m_selectedStyleIndex = total;
         }
         else {
             item["selected"] = false;
@@ -247,7 +247,7 @@ void PlasmaStyleBackend::getThemes()
 
         if (folderlist2[i] == selectedStyle) {
             item["selected"] = true;
-            m_selectedStyleIndex = i + total;
+            m_selectedStyleIndex = total;
         }
         else {
             item["selected"] = false;
@@ -289,6 +289,7 @@ void PlasmaStyleBackend::getThemes()
             }
 
             m_plasmaStyles.append(item);
+            total = total + 1;
         }
 
         QString path2 = "/usr/share/plasma/desktoptheme/" + folderlist2[i] + "/" + "metadata.json";
@@ -350,7 +351,11 @@ void PlasmaStyleBackend::getThemes()
             }
 
             m_plasmaStyles.append(item);
+            total = total + 1;
         }
     }
+
+    qDebug() << "Estilo seleccionado: " << selectedStyle;
+    qDebug() << "Total: " << total;
 }
 

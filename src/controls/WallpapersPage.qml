@@ -14,7 +14,8 @@ Maui.Page
 
     Component.onCompleted: {
         getWallpapers()
-        wallpapersView.currentIndex = WallpapersBackend.selectedWallpaper
+        //wallpapersView.currentIndex = WallpapersBackend.selectedWallpaper
+        wallpapersView.currentIndex = -1
         opacityAnimation.start()
         xAnimation.start()
     }
@@ -72,42 +73,10 @@ Maui.Page
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 20
                 imageSource: Qt.resolvedUrl("file://" + paperUrl)
-                imageSizeHint: 60
+                imageSizeHint: 75
                 maskRadius: Maui.Style.radiusV
                 fillMode: Image.PreserveAspectCrop
             }
-
-            /*
-            Rectangle {
-                id: paperRect
-                anchors.fill: parent
-                anchors.bottomMargin: 20
-                radius: 3
-
-                Image {
-                    id: wallpaperImage
-
-                    anchors.fill: parent
-                    asynchronous: true
-                    fillMode: Image.PreserveAspectCrop
-                    source: Qt.resolvedUrl("file://" + paperUrl)
-
-                    layer.enabled: true
-                    layer.effect: OpacityMask {
-                        maskSource: Item {
-                            width: wallpaperImage.width
-                            height: wallpaperImage.height
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: wallpaperImage.width
-                                height: wallpaperImage.height
-                                radius: 4
-                            }
-                        }
-                    }
-                }
-            }
-            */
 
             label2.text: name
 

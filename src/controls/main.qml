@@ -10,7 +10,7 @@ import org.kde.novasettings 1.0
 Maui.ApplicationWindow
 {
     id: root
-    title: qsTr("Astro")
+    title: qsTr("")
 
     Component.onCompleted: {
         _stackViewMenu.push("qrc:/MainMenuPage.qml")

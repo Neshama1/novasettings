@@ -23,6 +23,8 @@
 #include "backend/powerbackend.h"
 #include "backend/usersbackend.h"
 #include "backend/desktopeffectsbackend.h"
+#include "backend/lookandfeelbackend.h"
+#include "backend/sddmbackend.h"
 
 //Useful for setting quickly an app template
 #define ORG_NAME "KDE"
@@ -79,6 +81,12 @@ int main(int argc, char *argv[])
 
     QtStyleBackend qtstylebackend;
     qmlRegisterSingletonInstance<QtStyleBackend>("org.kde.novasettings", 1, 0, "QtStyleBackend", &qtstylebackend);
+
+    LookAndFeelBackend lookandfeelbackend;
+    qmlRegisterSingletonInstance<LookAndFeelBackend>("org.kde.novasettings", 1, 0, "LookAndFeelBackend", &lookandfeelbackend);
+
+    SDDMBackend sddmbackend;
+    qmlRegisterSingletonInstance<SDDMBackend>("org.kde.novasettings", 1, 0, "SDDMBackend", &sddmbackend);
 
     AboutSystemBackend aboutsystembackend;
     qmlRegisterSingletonInstance<AboutSystemBackend>("org.kde.novasettings", 1, 0, "AboutSystemBackend", &aboutsystembackend);

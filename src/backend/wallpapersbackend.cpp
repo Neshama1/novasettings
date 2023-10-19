@@ -94,6 +94,7 @@ void WallpapersBackend::getThemes()
     KConfigGroup wallpapersGroup = userWallpaperConfigFile.group("Wallpapers");
     QStringList filelist1 = wallpapersGroup.readEntry("usersWallpapers", QStringList());
 
+    m_selectedWallpaperIndex = 0;
     m_filesCount = 0;
     int total = 0;
 
@@ -112,7 +113,7 @@ void WallpapersBackend::getThemes()
 
             if (paperUrl == selectedWallpaper) {
                 item["selected"] = true;
-                m_selectedWallpaperIndex = i;
+                m_selectedWallpaperIndex = m_filesCount;
             }
             else {
                 item["selected"] = false;
@@ -167,7 +168,7 @@ void WallpapersBackend::getThemes()
 
                 if (paperUrl == selectedWallpaper) {
                     item["selected"] = true;
-                    m_selectedWallpaperIndex = i + total;
+                    m_selectedWallpaperIndex = m_filesCount;
                 }
                 else {
                     item["selected"] = false;
@@ -271,6 +272,7 @@ void WallpapersBackend::getThemes()
 
                     if (paperURL == selectedWallpaper) {
                         item["selected"] = true;
+                        m_selectedWallpaperIndex = m_filesCount;
                     }
                     else {
                         item["selected"] = false;
@@ -291,4 +293,5 @@ void WallpapersBackend::getThemes()
             }
         }
     }
+    qDebug() << "Wallpaper seleccionado: " << selectedWallpaper;
 }

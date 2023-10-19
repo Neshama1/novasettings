@@ -46,6 +46,8 @@ Maui.Page
         ListElement { name: "Plasma style" ; description: "Choose plasma style" ; icon: "preferences-desktop-plasma-theme" }
         ListElement { name: "Colors" ; description: "Choose color scheme" ; icon: "preferences-desktop-color" }
         ListElement { name: "Wallpapers" ; description: "Choose wallpaper" ; icon: "preferences-desktop-wallpaper" }
+        ListElement { name: "Look & feel" ; description: "Choose look and feel" ; icon: "preferences-desktop-theme-global" }
+        ListElement { name: "Login manager" ; description: "Choose login manager" ; icon: "preferences-system-login" }
     }
 
     ListView {
@@ -86,6 +88,16 @@ Maui.Page
                         case 3: {
                             appareanceMenuView.currentIndex = index
                             _stackView.push("qrc:/WallpapersPage.qml")
+                            return
+                        }
+                        case 4: {
+                            appareanceMenuView.currentIndex = index
+                            _stackView.push("qrc:/LookAndFeelPage.qml")
+                            return
+                        }
+                        case 5: {
+                            appareanceMenuView.currentIndex = index
+                            _stackView.push("qrc:/SddmPage.qml")
                             return
                         }
                     }
