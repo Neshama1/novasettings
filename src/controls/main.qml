@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQml 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
+import QtQuick.Window 2.2
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 
@@ -11,6 +12,9 @@ Maui.ApplicationWindow
 {
     id: root
     title: qsTr("")
+
+    width: Screen.desktopAvailableWidth - Screen.desktopAvailableWidth * 45 / 100
+    height: Screen.desktopAvailableHeight - Screen.desktopAvailableHeight * 20 / 100
 
     Component.onCompleted: {
         _stackViewMenu.push("qrc:/MainMenuPage.qml")
