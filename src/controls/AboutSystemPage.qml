@@ -44,13 +44,19 @@ Maui.Page
         anchors.margins: 20
         height: 100
 
-        title: i18n("About")
+        template.label1.text: i18n("About")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Information about the system")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("OS name")
+            template.label1.text: i18n("OS name")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Distribution name")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -59,8 +65,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Computer architecture")
+            template.label1.text: i18n("Computer architecture")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Instruction set architecture")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -69,8 +78,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Kernel")
+            template.label1.text: i18n("Kernel")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Kernel version")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -79,8 +91,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Hostname")
+            template.label1.text: i18n("Hostname")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Network label")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -89,8 +104,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("User")
+            template.label1.text: i18n("User")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Your user")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -99,8 +117,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Memory Size")
+            template.label1.text: i18n("Memory Size")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Computer memory")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -109,8 +130,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Storage")
+            template.label1.text: i18n("Storage")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Storage size")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -119,8 +143,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("CPU")
+            template.label1.text: i18n("CPU")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("CPU info")
+
             Label {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter

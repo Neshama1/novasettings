@@ -55,7 +55,10 @@ Maui.Page
         anchors.top: parent.top
         anchors.margins: 20
 
-        title: i18n("Users")
+        template.label1.text: i18n("Users")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Manage system users")
 
         Repeater {

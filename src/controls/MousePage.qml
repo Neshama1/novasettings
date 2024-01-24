@@ -72,13 +72,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("Mouse")
+        template.label1.text: i18n("Mouse")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Adjust mouse behavior")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Left handed")
+            template.label1.text: i18n("Left handed")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Mode")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -94,8 +100,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Flat acceleration profile")
+            template.label1.text: i18n("Flat acceleration profile")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Set the acceleration profile")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -111,8 +120,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Pointer speed")
+            template.label1.text: i18n("Pointer speed")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Set pointer acceleration")
+
             SpinBox {
                 id: spinBox
                 from: 0

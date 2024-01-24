@@ -72,13 +72,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("General")
+        template.label1.text: i18n("General")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Configure the behaviour")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Desktop search")
+            template.label1.text: i18n("Desktop search")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Enable file indexing")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -93,8 +99,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Global scale")
+            template.label1.text: i18n("Global scale")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Display configuration")
+
             SpinBox {
                 id: spinBox
                 from: 0
@@ -127,8 +136,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Fonts")
-            label2.text: i18n("Font thickness")
+            template.label1.text: i18n("Fonts")
+            template.label1.font.weight: Font.Normal
+
+            label2.text: i18n("Fonts thickness")
+
             Maui.ToolActions
             {
                 anchors.right: parent.right

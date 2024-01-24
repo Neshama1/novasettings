@@ -73,13 +73,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("Virtual desktops")
+        template.label1.text: i18n("Virtual desktops")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("This feature lets you have many desktops with each containing a different set of windows that can be easily switched by the user")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Slide")
+            template.label1.text: i18n("Slide")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Show slide animation when switching")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -95,8 +101,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Number")
+            template.label1.text: i18n("Number")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Set the number of virtual desktops")
+
             SpinBox {
                 id: spinBox1
                 from: 1
@@ -112,8 +121,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Rows")
+            template.label1.text: i18n("Rows")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Number of rows")
+
             SpinBox {
                 id: spinBox2
                 from: 1

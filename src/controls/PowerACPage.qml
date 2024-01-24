@@ -93,13 +93,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("Power management")
+        template.label1.text: i18n("Power management")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("AC")
 
         Maui.SectionItem
         {
-            label1.text: i18n("Dim Display")
+            template.label1.text: i18n("Dim Display")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Enable")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -116,8 +122,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text: i18n("Screen energy saving")
+            template.label1.text: i18n("Screen energy saving")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Enable")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -134,8 +143,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Suspend session")
+            template.label1.text: i18n("Suspend session")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Enable")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -152,8 +164,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text: i18n("Dim Display")
+            template.label1.text: i18n("Dim Display")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Time (min)")
+
             SpinBox {
                 id: spinBox1
                 from: 1
@@ -170,8 +185,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Screen energy saving")
+            template.label1.text: i18n("Screen energy saving")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Switch off after (min)")
+
             SpinBox {
                 id: spinBox2
                 from: 1
@@ -188,8 +206,11 @@ Maui.Page
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Suspend session")
+            template.label1.text: i18n("Suspend session")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Time (min)")
+
             SpinBox {
                 id: spinBox3
                 from: 1

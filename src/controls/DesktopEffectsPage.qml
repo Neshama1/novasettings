@@ -65,13 +65,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("Desktop Effects")
+        template.label1.text: i18n("Desktop Effects")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Improve the way your desktop looks")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Dim inactive")
+            template.label1.text: i18n("Dim inactive")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Darkens the parent window of the currently active dialog")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -86,8 +92,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Slide back")
+            template.label1.text: i18n("Slide back")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Slide back windows when another window is raised")
+
             Switch {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter

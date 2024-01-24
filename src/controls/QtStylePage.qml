@@ -50,13 +50,19 @@ Maui.Page
         anchors.margins: 20
         height: 50 * 3
 
-        title: i18n("Qt Quick Controls Style")
+        template.label1.text: i18n("Qt Quick Controls Style")
+        template.label1.font.weight: Font.Normal
+        template.label1.font.pixelSize: 20
+
         description: i18n("Adjust qt style")
 
         Maui.SectionItem
         {
-            label1.text:  i18n("Desktop")
+            template.label1.text: i18n("Desktop")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Default")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -71,8 +77,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Breeze")
+            template.label1.text: i18n("Breeze")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Breeze theme")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -87,8 +96,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Plasma")
+            template.label1.text: i18n("Plasma")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Plasma theme")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -103,8 +115,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Material")
+            template.label1.text: i18n("Plasma")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Material theme")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -119,8 +134,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Universal")
+            template.label1.text: i18n("Universal")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("Universal theme")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -135,8 +153,11 @@ Maui.Page
         }
         Maui.SectionItem
         {
-            label1.text:  i18n("Imagine")
+            template.label1.text: i18n("Imagine")
+            template.label1.font.weight: Font.Normal
+
             label2.text: i18n("The Imagine style is based on image assets")
+
             Controls.CheckBox {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
