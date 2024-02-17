@@ -19,12 +19,6 @@ Maui.Page
 
             MenuItem
             {
-                text: i18n("Settings")
-                icon.name: "settings-configure"
-            }
-
-            MenuItem
-            {
                 text: i18n("About")
                 icon.name: "documentinfo"
                 onTriggered: root.about()
