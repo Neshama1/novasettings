@@ -85,7 +85,8 @@ Maui.Page {
                 onClicked: {
                     if (LookAndFeelBackend.lookAndFeelStyles[index].name == "Wildberry" ||
                         LookAndFeelBackend.lookAndFeelStyles[index].name == "Bubblegum" ||
-                        LookAndFeelBackend.lookAndFeelStyles[index].name == "Mint")
+                        LookAndFeelBackend.lookAndFeelStyles[index].name == "Mint" ||
+                        LookAndFeelBackend.lookAndFeelStyles[index].name == "Fresh")
                     {
                         indexTheme = index
                         passwordDialog.visible = true

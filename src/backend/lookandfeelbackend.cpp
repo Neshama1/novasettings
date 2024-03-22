@@ -61,6 +61,10 @@ void LookAndFeelBackend::setSelectedStyle(int selectedStyle)
     {
         error = system("echo " + sudoPwd + " | sudo -S kwriteconfig5 --file /etc/sddm.conf.d/kde_settings.conf --group Theme --key Current Mint");
     }
+    else if (selectedPackage == "org.fresh.desktop")
+    {
+        error = system("echo " + sudoPwd + " | sudo -S kwriteconfig5 --file /etc/sddm.conf.d/kde_settings.conf --group Theme --key Current Fresh");
+    }
 
     if (error != 0)
     {
