@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>controls/Menu.qml</file>
+        <file>controls/Generic.qml</file>
+        <file>controls/FormFactor.qml</file>
+        <file>controls/Screen.qml</file>
+        <file>controls/Keyboard.qml</file>
+        <file>controls/Theme.qml</file>
+        <file>controls/About.qml</file>
+        <file>controls/Icons.qml</file>
+        <file>controls/Fonts.qml</file>
+    </qresource>
+</RCC>

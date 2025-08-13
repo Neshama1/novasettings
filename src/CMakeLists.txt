@@ -1,50 +1,58 @@
-# Copyright 2018-2021 Camilo Higuita <milo.h@aol.com>
-# Copyright 2018-2021 Nitrux Latinoamericana S.C.
-#
-# SPDX-License-Identifier: GPL-3.0-or-later
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_URL_CAST_FROM_STRING)
 
-set(project_SRCS
-    code/main.cpp
-    assets/assets.qrc
-    )
+# CREATE AND FINALIZES AN APPLICATION TARGET BIN/NOVASETTINGS (CMAKE TARGET + LINK QT CORE + HANDLE FINALIZATION)
 
-qtquick_compiler_add_resources(project_QML_QRC controls/qml.qrc)
+qt_add_executable(${PROJECT_NAME}
+    main.cpp
+    code/keyboardglobal.cpp
+    code/dbusconnection.cpp
+    code/about.cpp
+    assets.qrc)
 
-add_executable(${PROJECT_NAME}
-    ${project_SRCS}
-    ${project_QML_QRC}
-    backend/colorschemesbackend.cpp
-    backend/plasmastylebackend.cpp
-    backend/aboutsystembackend.cpp
-    backend/wallpapersbackend.cpp
-    backend/qtstylebackend.cpp
-    backend/miscbackend.cpp
-    backend/mousebackend.cpp
-    backend/virtualdesktopsbackend.cpp
-    backend/powerbackend.cpp
-    backend/usersbackend.cpp
-    backend/desktopeffectsbackend.cpp
-    backend/lookandfeelbackend.cpp
-    backend/sddmbackend.cpp
-    )
+# DEFINE QML MODULE: LINK TO THE BACKING TARGET. THERE WILL BE NO PLUGIN ADDING THE NO_PLUGIN OPTION.
+
+qt_add_qml_module(${PROJECT_NAME} URI org.kde.novasettings
+    NO_PLUGIN
+    QML_FILES
+    main.qml
+    controls/Menu.qml
+    controls/Generic.qml
+    controls/FormFactor.qml
+    controls/Screen.qml
+    controls/Keyboard.qml
+    controls/Theme.qml
+    controls/Icons.qml
+    controls/Fonts.qml
+    controls/About.qml)
+
+# ADD PREPROCESSOR DEFINITIONS (MACROS) SUCH AS DEBUG, RELEASE OR MY_VERSION TO THE APP TARGET
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
+# ADD COMPILE OPTIONS SUCH AS: -Wall, -Wextra, -g or std=c++17
+
+target_compile_options(${PROJECT_NAME} PRIVATE -fexceptions)
+
+# SPECIFY LIBRARIES LINKED TO GIVEN TARGET BIN/NOVASETTINGS
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
-    MauiKit3
-    MauiKit3::FileBrowsing
+    MauiKit4
+    MauiKit4::FileBrowsing
+    MauiMan4
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+	Qt6::Qml
+    Qt6::Quick
+    Qt6::DBus
+    KF6::I18n
+    KF6::CoreAddons
+    KF6::ConfigCore)
 
-    Qt5::Core
-    Qt5::Quick
-    Qt5::Widgets
+# FILES TO BE INSTALLED
 
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::ConfigCore
-    KF5::ConfigGui
-    KF5::Kirigami2
-    )
-
-install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES data/project.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} RENAME ${PROJECT_URI}.appdata.xml)
+install(FILES data/project.desktop DESTINATION ${KDE_INSTALL_APPDIR} RENAME ${PROJECT_URI}.desktop)
+install(FILES assets/logo.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps RENAME ${PROJECT_NAME}.svg)

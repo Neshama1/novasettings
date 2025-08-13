@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "backend/aboutsystembackend.h"
+#include "about.h"
 
 #include <QFile>
 #include <QStorageInfo>
