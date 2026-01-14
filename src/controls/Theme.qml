@@ -223,10 +223,10 @@ Maui.Page {
 
                 Maui.ColorsRow {
 
-                    defaultColor: "aquamarine"
+                    defaultColor: "#65f6cf"
                     currentColor: themeManager.accentColor
 
-                    colors: ["aquamarine", "mediumspringgreen", "limegreen", "lightskyblue", "deepskyblue", "dodgerblue", "lightgrey", "silver", "dimgrey"]
+                    colors: ["#65f6cf", "#16bf91", "#04624c", "lightskyblue", "deepskyblue", "dodgerblue", "lightgrey", "silver", "dimgrey"]
 
                     onColorPicked: (color) =>
                     {
