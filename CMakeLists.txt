@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.16)
 
 # PROJECT
 
-set(NOVASETTINGS_VERSION 0.1.17)
+set(NOVASETTINGS_VERSION 0.1.18)
 project(novasettings VERSION ${NOVASETTINGS_VERSION} LANGUAGES CXX)
 set(PROJECT_URI org.kde.${PROJECT_NAME})
 
@@ -37,6 +37,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick DBus)
 find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n Config CoreAddons)
+
 find_package(MauiKit4 REQUIRED)
 find_package(MauiKit4 REQUIRED COMPONENTS FileBrowsing)
 find_package(MauiMan4 REQUIRED)

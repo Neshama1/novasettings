@@ -7,6 +7,7 @@ qt_add_executable(${PROJECT_NAME}
     code/keyboardglobal.cpp
     code/dbusconnection.cpp
     code/about.cpp
+    code/rclink.cpp
     assets.qrc)
 
 # DEFINE QML MODULE: LINK TO THE BACKING TARGET. THERE WILL BE NO PLUGIN ADDING THE NO_PLUGIN OPTION.
@@ -49,7 +50,8 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::DBus
     KF6::I18n
     KF6::CoreAddons
-    KF6::ConfigCore)
+    KF6::ConfigCore
+    KF6::ConfigGui)
 
 # FILES TO BE INSTALLED
 

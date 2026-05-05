@@ -23,6 +23,7 @@
 
 #include "code/dbusconnection.h"
 #include "code/keyboardglobal.h"
+#include "code/rclink.h"
 #include "code/about.h"
 
 #include "../novasettings_version.h"
@@ -127,6 +128,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<MauiMan::InputDevicesManager>("org.kde.novasettings", 1, 0, "InputDevicesManager");
     qmlRegisterType<KeyboardGlobal>("org.kde.novasettings", 1, 0, "KeyboardGlobal");
     qmlRegisterType<DBusConnection>("org.kde.novasettings", 1, 0, "DBusConnection");
+	qmlRegisterType<RcLink>("org.kde.novasettings", 1, 0, "RcLink");
 
     // LOAD MAIN.QML
 

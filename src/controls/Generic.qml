@@ -20,6 +20,10 @@ Maui.Page {
         id: accessibilityManager
     }
 
+    RcLink {
+        id: rcLink
+    }
+
     Maui.SectionGroup {
 
         anchors.left: parent.left
@@ -38,13 +42,17 @@ Maui.Page {
             Switch {
                 checkable: true
                 checked: accessibilityManager.singleClick
-                onToggled: accessibilityManager.singleClick = visualPosition == 0 ? false : true
+				onToggled: {
+					accessibilityManager.singleClick = visualPosition == 0 ? false : true
+					var group = ["KDE"]
+					rcLink.setValue("kdeglobals", group, "SingleClick", accessibilityManager.singleClick)
+				}
             }
         }
 
         Maui.FlexSectionItem {
             label1.text: i18n("Scrollbar Policy")
-            label2.text: i18n("How to display the scrollbar")
+            label2.text: i18n("How to display the scrollbar in Maui apps")
 
             Label {
                 text: scrollBarPolicy[accessibilityManager.scrollBarPolicy]
@@ -129,7 +137,11 @@ Maui.Page {
             Switch {
                 checkable: true
                 checked: accessibilityManager.playSounds
-                onToggled: accessibilityManager.playSounds = visualPosition == 0 ? false : true
+                onToggled: {
+                    accessibilityManager.playSounds = visualPosition == 0 ? false : true
+                    var group = ["Sounds"]
+                    rcLink.setValue("kdeglobals", group, "Enable", accessibilityManager.playSounds)
+                }
             }
         }
     }
